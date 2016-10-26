@@ -1,4 +1,5 @@
 # events-app
-Mobile application specific for you events listing platform
+
+Event application to notify all the upcoming hackthons
 
 ionic application
