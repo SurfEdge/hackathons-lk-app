@@ -1,4 +1,4 @@
-# Hackthon Event Application
+# Hackthons.lk Mobile Application
 ## @SurfEdge
 
 **Event application to notify all the upcoming hackthons**
