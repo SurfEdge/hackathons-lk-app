@@ -25,4 +25,10 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
-});
+})
+
+.controller('ContactCtrl', function($scope, $stateParams, Chats) {
+  // $scope.chat = Chats.get($stateParams.chatId);
+})
+
+;

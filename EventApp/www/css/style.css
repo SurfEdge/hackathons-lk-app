@@ -1,1 +1,6 @@
-/* Empty. Add your own CSS if you like */
+/*To align the view element to the right*/
+.position-right {
+    position: absolute;
+    right: 0px;
+  	margin-right: 5px;
+}

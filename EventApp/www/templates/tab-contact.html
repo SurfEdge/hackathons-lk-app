@@ -1,0 +1,34 @@
+<ion-view view-title="Contact">
+  <ion-content>
+    <ion-list>
+    
+     <ion-card *ngIf="timer">
+    <ion-card-header>
+        <button *ngIf="timeInSeconds && timeInSeconds > 0" large block clear class="timer-button">{{timer.displayTime}}</button>
+        <button *ngIf="!timeInSeconds || timeInSeconds == 0" large block clear class="timer-button">Timer set up incorrectly</button>
+    </ion-card-header>
+    <ion-item *ngIf="timeInSeconds && timeInSeconds > 0">
+        <button clear danger small (click)="initTimer()" item-left *ngIf="!timer.runTimer && (timer.hasStarted || timer.hasFinished) || timer.hasFinished">
+            <ion-icon name="refresh"></ion-icon>
+            Reset
+        </button>
+        <button clear small primary (click)="pauseTimer()" item-right *ngIf="timer.runTimer && timer.hasStarted && !timer.hasFinished">
+            <ion-icon name="pause"></ion-icon>
+            Pause
+        </button>      
+        <button clear small primary (click)="resumeTimer()" item-right *ngIf="!timer.runTimer && timer.hasStarted && !timer.hasFinished">
+            <ion-icon name="play"></ion-icon>
+            Resume
+        </button>      
+        <button clear small primary (click)="startTimer()" item-right *ngIf="!timer.hasStarted">
+            <ion-icon name="play"></ion-icon>
+            Start
+        </button>            
+    </ion-item>
+</ion-card>
+
+       
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
