@@ -1,10 +1,16 @@
-<ion-view view-title="Upcoming Events">
+<ion-view >
+
+    <ion-nav-title>
+      <img src="img/logo.png" width="40dp" height="40dp">
+    </ion-nav-title>
+
+<!-- <ion-nav-bar class="bar nav-bar-color" ></ion-nav-bar> -->
   <ion-content class="padding">
 
   <!-- To notify the events count   -->
   <div class="card">
         <div class="item item-divider">
-        <CENTER>10 Upcoming Events</CENTER>
+        <CENTER>10 Upcoming Hackathons</CENTER>
         </div>
   </div>
 
@@ -16,10 +22,11 @@
       </div>
 
       <a class="item item-icon-left" href="#">
-        <STRONG class= "positive">Disrupt 2.0 – FutureX</STRONG><br>
-        <i class="ion-ios-location"> &nbsp; University of Colombo School of Computing</i>
+        <STRONG class= "positive">{{upcomingData.Name}}</STRONG><br>
+        <i class="ion-ios-location"> &nbsp; {{upcomingData.location}}</i>
         <br>
-        Hackathon Started
+        {{upcomingData.status}}
+
       </a>
 
       <div class="item item-divider">

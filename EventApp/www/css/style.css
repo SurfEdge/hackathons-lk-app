@@ -4,3 +4,9 @@
     right: 0px;
   	margin-right: 5px;
 }
+
+/*color to change the nav bar*/
+
+.nav-bar-color{
+	background: #3B5998 !important
+}
