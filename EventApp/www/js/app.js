@@ -5,7 +5,8 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 
+              'tabUpcoming.module','tabEnded.module', 'tabAbout-module','tabContact.module'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -45,7 +46,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'tab-dash': {
         templateUrl: 'templates/tab-upcoming.html',
-        controller: 'DashCtrl'
+        controller: 'TabUpcomingController'
       }
     }
   })
@@ -55,7 +56,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       views: {
         'tab-chats': {
           templateUrl: 'templates/tab-ended.html',
-          controller: 'ChatsCtrl'
+          controller: 'TabEndedController'
         }
       }
     })
@@ -85,7 +86,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     views: {
       'tab-contact': {
         templateUrl: 'templates/tab-contact.html',
-        controller: 'ContactCtrl'
+        controller: 'TabContactController'
       }
     }
   });
