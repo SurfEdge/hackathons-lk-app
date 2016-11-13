@@ -10,47 +10,33 @@
   <!-- To notify the events count   -->
   <div class="card">
         <div class="item item-divider">
-        <CENTER>10 Upcoming Hackathons</CENTER>
+        <CENTER>{{upcomingData.length}} Upcoming Hackathons</CENTER>
         </div>
   </div>
 
 
-<!-- First Card -->
-   <div class="list card">
+<div ng-repeat="hackathon in upcomingData">
+
+<!-- Card template-->
+  <div class="list card">
       <div class="item item-image">
-        <img src="../img/disrupt_hack.PNG">
+        <img src="{{hackathon.cover}}">
       </div>
-
-      <a class="item item-icon-left" href="#">
-        <STRONG class= "positive">{{upcomingData.Name}}</STRONG><br>
-        <i class="ion-ios-location"> &nbsp; {{upcomingData.location}}</i>
-        <br>
-        {{upcomingData.status}}
-
-      </a>
+      <ion-item class="item-text-wrap">
+        <a class="item item-icon-left" href="#">
+          <STRONG class= "positive" style="font-size: 25px; font-weight: bold;">{{hackathon.Name}}</STRONG><br>
+          <i class="ion-ios-location"> &nbsp; {{hackathon.location}}</i>
+          <br>
+          {{hackathon.status}}
+        </a>
+      </ion-item>
 
       <div class="item item-divider">
-     <i class="ion-android-calendar"> &nbsp;NOVEMBER 3RD, 2016</i>
-     <i class="ion-eye position-right"> &nbsp;212</i>
-
+         <i class="ion-android-calendar"> &nbsp;{{hackathon.date}}</i>
+         <i class="ion-eye position-right"> &nbsp;{{hackathon.views}}</i>
      </div>
-
+  </div>  
 
 </div>
-
-<!-- Second Card -->
-   <div class="list card">
-      <div class="item item-image">
-        <img src="../img/mora_hack.PNG">
-      </div>
-
-      <a class="item item-icon-left assertive" href="#">
-        <i class=""></i>
-        <STRONG>Mora Hack 2016</STRONG><br>
-        Dialog Axiata PLC<br>
-        Hackathon Not Started
-      </a>
-</div>
-    </p>
   </ion-content>
 </ion-view>

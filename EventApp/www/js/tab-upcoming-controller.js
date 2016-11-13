@@ -4,7 +4,7 @@ angular.module('tabUpcoming.module', []).controller('TabUpcomingController', fun
 
 
 
-var jsonObject = '{"Name" : "Disrupt 2.0 – FutureX", "location" : "University of Colombo School of Computing", "status" : "Hackathon Started", "date" : "NOVEMBER 3RD, 2016" , "views" : "248"}';
+var jsonObject = '[{"Name" : "Disrupt 2.0 – FutureX", "location" : "University of Colombo School of Computing", "status" : "Hackathon Started", "date" : "NOVEMBER 3RD, 2016" , "views" : "248","cover":"../img/disrupt_hack.PNG"},{"Name" : "Disrupt 2.0 – FutureX", "location" : "University of Colombo School of Computing", "status" : "Hackathon Started", "date" : "NOVEMBER 3RD, 2016" , "views" : "248","cover":"../img/disrupt_hack.PNG"}]';
 
 console.log(jsonObject);
 var obj = JSON.parse(jsonObject);

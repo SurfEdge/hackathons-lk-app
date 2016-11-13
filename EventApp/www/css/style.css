@@ -10,3 +10,18 @@
 .nav-bar-color{
 	background: #3B5998 !important
 }
+
+/*Text Wrapper*/
+.item-text-wrap {
+    /*width: 33.33%;*/
+    text-align: center;
+}
+
+.item-icon-left {
+    padding-left: 0px;
+}
+
+
+.tabs-icon-top .tab {
+    color: red;
+}
