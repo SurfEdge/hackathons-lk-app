@@ -2,17 +2,11 @@
 
 angular.module('tabUpcoming.module', []).controller('TabUpcomingController', function($scope) {
 
+	var jsonObject = '[{"Name" : "Disrupt 2.0 – FutureX", "location" : "University of Colombo School of Computing", "status" : "Hackathon Started", "date" : "NOVEMBER 3RD, 2016" , "views" : "248","cover":"http://hackathons.lk/wp-content/uploads/2016/10/futurex_cover.jpg"},{"Name" : "BeThem Challenge", "location" : "99X Technology", "status" : "Hackathon not Started", "date" : "NOVEMBER 3RD, 2016" , "views" : "100","cover":"http://hackathons.lk/wp-content/uploads/2016/11/bethem_2.jpg"}]';
 
-
-var jsonObject = '[{"Name" : "Disrupt 2.0 – FutureX", "location" : "University of Colombo School of Computing", "status" : "Hackathon Started", "date" : "NOVEMBER 3RD, 2016" , "views" : "248","cover":"../img/disrupt_hack.PNG"},{"Name" : "Disrupt 2.0 – FutureX", "location" : "University of Colombo School of Computing", "status" : "Hackathon Started", "date" : "NOVEMBER 3RD, 2016" , "views" : "248","cover":"../img/disrupt_hack.PNG"}]';
-
-console.log(jsonObject);
-var obj = JSON.parse(jsonObject);
+	// To parst the data and set the data into the scope
+	var obj = JSON.parse(jsonObject);
 	$scope.upcomingData = obj;
-	// 
-	// for (var i =0; i<obj.length; i++) {
-	// 	$scope.upcomingData[i] = obj[i];
-	// }
 
-	// console.log(upcomingData[1]);
+		
 });
