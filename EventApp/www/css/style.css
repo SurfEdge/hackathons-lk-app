@@ -25,3 +25,20 @@
 .tabs-icon-top .tab {
     color: red;
 }
+
+
+/*Styling for the countdowner*/
+.count-down-timer{
+	display: inline-block;
+    position: relative;
+}
+
+.countdown-days{
+		 display: inherit;
+}
+
+.dayss{
+	position: absolute;
+	margin-top: 10px;
+}
+

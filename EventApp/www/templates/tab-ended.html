@@ -2,45 +2,40 @@
     <ion-nav-title>
       <img src="img/logo.png" width="40dp" height="40dp">
     </ion-nav-title>
-  <ion-content>
-    <ion-list>
 
-      <!-- To notify the events count   -->
+  <ion-content class="padding">
+
+  <!-- To notify the events count   -->
   <div class="card">
         <div class="item item-divider">
-        <CENTER>2 Hackathons are ended</CENTER>
+        <CENTER>{{endedHackthonData.length}} Ended Hackathons</CENTER>
         </div>
   </div>
 
-     
-     <!-- First Card -->
-   <div class="list card">
+
+<div ng-repeat="hackathon in endedHackthonData">
+
+<!-- Card template-->
+  <div class="list card">
       <div class="item item-image">
-        <img src="../img/disrupt_hack.PNG">
+        <img src="{{hackathon.cover}}">
       </div>
+      <ion-item class="item-text-wrap">
+        <a class="item item-icon-left" href="#">
+          <STRONG class= "positive" style="font-size: 25px; font-weight: bold;">{{hackathon.Name}}</STRONG><br>
+          <i class="ion-ios-location"> &nbsp; {{hackathon.location}}</i>
+          <br>
+          {{hackathon.status}}
+        </a>
+      </ion-item>
 
-      <a class="item item-icon-left assertive" href="#">
-        <i class=""></i>
-        <STRONG>Disrupt 2.0 – FutureX</STRONG><br>
-        University of Colombo School of Computing<br>
-        Hackathon Started
-      </a>
+      <div class="item item-divider">
+         <i class="ion-android-calendar"> &nbsp;{{hackathon.date}}</i>
+         <i class="ion-eye position-right"> &nbsp;{{hackathon.views}}</i>
+     </div>
+  </div>  
+
 </div>
-
-<!-- Second Card -->
-   <div class="list card">
-      <div class="item item-image">
-        <img src="../img/mora_hack.PNG">
-      </div>
-
-      <a class="item item-icon-left assertive" href="#">
-        <i class=""></i>
-        <STRONG>Mora Hack 2016</STRONG><br>
-        Dialog Axiata PLC<br>
-        Hackathon Not Started
-      </a>
-</div>
-
-    </ion-list>
   </ion-content>
+
 </ion-view>
