@@ -1,16 +1,18 @@
-# hackathons_lk_app
+# Hackthons.lk Mobile Application
+## @SurfEdge
 
-A new Flutter project.
+**Event application to notify all the upcoming hackthons**
 
-## Getting Started
+This is an ionic application to notify all the upcoming hackthons in Sri Lanka. 
 
-This project is a starting point for a Flutter application.
+**Link to main site :** [hackathons.lk](http://hackathons.lk/)
 
-A few resources to get you started if this is your first Flutter project:
+###Proposed app layout
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+![Proposed](http://m.surfedge.lk/git/hlk/proposed.jpg)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+###Some Screenshots at the beginning stage
+
+![Home Page](https://i.imgsafe.org/0f8366428f.png)
