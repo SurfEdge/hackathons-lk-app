@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hackathons_lk_app/screens/about_screen.dart';
+import 'package:hackathons_lk_app/screens/calendar_screen.dart';
 import 'package:hackathons_lk_app/screens/events_screen.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:hackathons_lk_app/services/customicons_icons.dart';
@@ -19,7 +20,7 @@ class _HackathonsLKState extends State<HackathonsLK> {
   Color colorSelected = Color(0xffffffff);
 
   int _selectedIndex = 0;
-  final List<Widget> _menus = [EventsScreen(), EventsScreen(), AboutScreen()];
+  final List<Widget> _menus = [EventsScreen(), CalendarScreen(), AboutScreen()];
 
   @override
   Widget build(BuildContext context) {
@@ -54,6 +55,7 @@ class _HackathonsLKState extends State<HackathonsLK> {
       iconSize: 18,
       backgroundColor: Color(0xffE8E8E8),
       items: <BubbleBottomBarItem>[
+        //* Events Items
         BubbleBottomBarItem(
           backgroundColor: Color(0xff1976D2),
           icon: Icon(
@@ -77,6 +79,7 @@ class _HackathonsLKState extends State<HackathonsLK> {
             textAlign: TextAlign.left,
           ),
         ),
+        //* Calendar Item
         BubbleBottomBarItem(
           backgroundColor: Color(0xff1976D2),
           icon: Icon(
@@ -99,6 +102,7 @@ class _HackathonsLKState extends State<HackathonsLK> {
                 fontSize: 16),
           ),
         ),
+        //* About Item
         BubbleBottomBarItem(
           backgroundColor: Color(0xff1976D2),
           icon: Icon(
