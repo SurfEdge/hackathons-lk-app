@@ -1,113 +1,135 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:hackathons_lk_app/screens/about_screen.dart';
+import 'package:hackathons_lk_app/screens/events_screen.dart';
+import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
+import 'package:hackathons_lk_app/services/customicons_icons.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(HackathonsLK());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class HackathonsLK extends StatefulWidget {
+  @override
+  _HackathonsLKState createState() => _HackathonsLKState();
+}
+
+class _HackathonsLKState extends State<HackathonsLK> {
+  Color colorMain = Color(0xff939AA4);
+  Color colorSelected = Color(0xffffffff);
+
+  int _selectedIndex = 0;
+  final List<Widget> _menus = [EventsScreen(), EventsScreen(), AboutScreen()];
+
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
+        accentColor: Color(0xff1976D2),
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        scaffoldBackgroundColor: Color(0xfff8f8f8),
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Scaffold(
+        bottomNavigationBar: navigationBar(),
+        body: _menus[_selectedIndex],
+      ),
     );
   }
-}
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
-
-  final String title;
-
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
+  navigationBar() {
+    return BubbleBottomBar(
+      opacity: 1,
+      currentIndex: _selectedIndex,
+      onTap: _onItemTapped,
+      elevation: 8,
+      //fabLocation: BubbleBottomBarFabLocation.end, //new
+      //hasNotch: true, //new
+      hasInk: true, //new, gives a cute ink effect
+      inkColor:
+          Colors.transparent, //optional, uses theme color if not specified
+      iconSize: 18,
+      backgroundColor: Color(0xffE8E8E8),
+      items: <BubbleBottomBarItem>[
+        BubbleBottomBarItem(
+          backgroundColor: Color(0xff1976D2),
+          icon: Icon(
+            Customicons.events,
+            color: colorMain,
+          ),
+          activeIcon: Container(
+            width: 0,
+            child: Icon(
+              Customicons.events,
+              color: colorSelected,
+            ),
+          ),
+          title: Text(
+            "Events",
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'poppins',
+                fontWeight: FontWeight.w400,
+                fontSize: 16),
+            textAlign: TextAlign.left,
+          ),
+        ),
+        BubbleBottomBarItem(
+          backgroundColor: Color(0xff1976D2),
+          icon: Icon(
+            Customicons.calendar_alt,
+            color: colorMain,
+          ),
+          activeIcon: Container(
+            width: 0,
+            child: Icon(
+              Customicons.calendar_alt,
+              color: colorSelected,
+            ),
+          ),
+          title: Text(
+            "Calendar",
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'poppins',
+                fontWeight: FontWeight.w400,
+                fontSize: 16),
+          ),
+        ),
+        BubbleBottomBarItem(
+          backgroundColor: Color(0xff1976D2),
+          icon: Icon(
+            Customicons.info_circle,
+            color: colorMain,
+          ),
+          activeIcon: Container(
+            width: 0,
+            child: Icon(
+              Customicons.info_circle,
+              color: colorSelected,
+            ),
+          ),
+          title: Text(
+            "About",
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'poppins',
+                fontWeight: FontWeight.w400,
+                fontSize: 16),
+          ),
+        )
+      ],
+    );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-          ],
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+  _onItemTapped(int index) {
+    setState(
+      () {
+        _selectedIndex = index;
+      },
     );
   }
 }
