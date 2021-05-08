@@ -23,7 +23,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
+  bubble_bottom_bar: ^1.2.0
+  http: ^0.13.3
+  intl: ^0.17.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -45,8 +47,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - lib/assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -60,6 +62,29 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
+    
+  # flutter:
+  fonts:
+  - family: poppins
+    fonts:
+    - asset: fonts/Poppins-Regular.ttf
+    - asset: fonts/Poppins-Thin.ttf
+      weight: 300
+    - asset: fonts/Poppins-Light.ttf
+      weight: 300
+    - asset: fonts/Poppins-Medium.ttf
+      weight: 500
+    - asset: fonts/Poppins-SemiBold.ttf
+      weight: 600
+    - asset: fonts/Poppins-Bold.ttf
+      weight: 700
+    - asset: fonts/Poppins-ExtraBold.ttf
+      weight: 800
+    - asset: fonts/Poppins-Black.ttf
+      weight: 900
+  - family:  Customicons
+    fonts:
+    - asset: icons/Customicons.ttf
   # fonts:
   #   - family: Schyler
   #     fonts:
