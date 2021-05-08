@@ -31,6 +31,12 @@
       "css": "info_circle",
       "code": 61530,
       "src": "fontawesome5"
+    },
+    {
+      "uid": "12fdd8d92fdf793bc7cd3d679b0fe1fd",
+      "css": "globe",
+      "code": 61612,
+      "src": "fontawesome5"
     }
   ]
 }

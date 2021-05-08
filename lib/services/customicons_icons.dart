@@ -31,4 +31,6 @@ class Customicons {
       IconData(0xf05a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData calendar_alt =
       IconData(0xf073, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData globe =
+      IconData(0xf0ac, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }
