@@ -1,7 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:hackathons_lk_app/screens/events_screen.dart';
 import 'package:hackathons_lk_app/services/customicons_icons.dart';
+
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class AllEventsSection extends StatefulWidget {
   final Future<List<Data>> eventData;
@@ -23,8 +26,6 @@ class _AllEventsSectionState extends State<AllEventsSection> {
             print(data[0].image);
             return ListView.builder(
               padding: EdgeInsets.zero,
-              // shrinkWrap: true,
-              // physics: NeverScrollableScrollPhysics(),
               itemCount: data.length,
               itemBuilder: (context, index) {
                 return Container(
@@ -64,9 +65,21 @@ class _AllEventsSectionState extends State<AllEventsSection> {
                             child: Stack(
                               alignment: Alignment.bottomLeft,
                               children: [
-                                //* Image
-                                Image.network(
-                                  data[index].image,
+                                //* Cache Image viewer
+                                CachedNetworkImage(
+                                  fadeInDuration: Duration(milliseconds: 200),
+                                  imageUrl: data[index].image,
+                                  placeholder: (context, url) =>
+                                      //* Image loading shimmer
+                                      Shimmer.fromColors(
+                                    baseColor: Colors.grey[300],
+                                    highlightColor: Colors.grey[400],
+                                    child: Container(
+                                      height: 150,
+                                      width: double.infinity,
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -198,7 +211,58 @@ class _AllEventsSectionState extends State<AllEventsSection> {
               },
             );
           } else {
-            return Container();
+            return ListView(
+              padding: EdgeInsets.zero,
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              children: [
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.grey[300],
+                      highlightColor: Colors.grey[400],
+                      child: Container(
+                        height: 200,
+                        width: double.infinity,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.grey[300],
+                      highlightColor: Colors.grey[400],
+                      child: Container(
+                        height: 200,
+                        width: double.infinity,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.grey[300],
+                      highlightColor: Colors.grey[400],
+                      child: Container(
+                        height: 200,
+                        width: double.infinity,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            );
           }
         },
       ),
