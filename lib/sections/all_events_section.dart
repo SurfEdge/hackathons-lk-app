@@ -26,8 +26,6 @@ class _AllEventsSectionState extends State<AllEventsSection> {
             print(data[0].image);
             return ListView.builder(
               padding: EdgeInsets.zero,
-              // shrinkWrap: true,
-              // physics: NeverScrollableScrollPhysics(),
               itemCount: data.length,
               itemBuilder: (context, index) {
                 return Container(

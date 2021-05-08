@@ -145,8 +145,12 @@ class _EventsScreenState extends State<EventsScreen> {
                               AllEventsSection(
                                 eventData: eventData,
                               ), //* All Events Section
-                              UpcomingEventsSection(), //* Upcoming Events Section
-                              EndedEventsSection(), //* Ended Events Section
+                              UpcomingEventsSection(
+                                eventData: eventData,
+                              ), //* Upcoming Events Section
+                              EndedEventsSection(
+                                eventData: eventData,
+                              ), //* Ended Events Section
                             ],
                           ),
                         ),
