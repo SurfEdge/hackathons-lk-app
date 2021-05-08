@@ -36,7 +36,10 @@ class _HackathonsLKState extends State<HackathonsLK> {
       ),
       home: Scaffold(
         bottomNavigationBar: navigationBar(),
-        body: _menus[_selectedIndex],
+        body: IndexedStack(
+          index: _selectedIndex,
+          children: _menus,
+        ),
       ),
     );
   }

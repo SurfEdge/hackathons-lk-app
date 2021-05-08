@@ -1,7 +1,9 @@
-import 'package:flutter/material.dart';
 import 'package:hackathons_lk_app/screens/events_screen.dart';
 import 'package:hackathons_lk_app/services/customicons_icons.dart';
+
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:shimmer/shimmer.dart';
 
 class AllEventsSection extends StatefulWidget {
   final Future<List<Data>> eventData;
@@ -67,6 +69,21 @@ class _AllEventsSectionState extends State<AllEventsSection> {
                                 //* Image
                                 Image.network(
                                   data[index].image,
+                                  frameBuilder: (context, child, frame, _) {
+                                    if (frame == null) {
+                                      //* Image loading shimmer
+                                      return Shimmer.fromColors(
+                                        baseColor: Colors.grey[300],
+                                        highlightColor: Colors.grey[400],
+                                        child: Container(
+                                          height: 150,
+                                          width: double.infinity,
+                                          color: Colors.white,
+                                        ),
+                                      );
+                                    }
+                                    return child;
+                                  },
                                 ),
                                 Row(
                                   mainAxisAlignment:
