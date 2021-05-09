@@ -27,10 +27,20 @@ class Customicons {
 
   static const IconData events =
       IconData(0xe800, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData icon_ionic_ios_time =
+      IconData(0xe802, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData info_circle =
       IconData(0xf05a, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData calendar_alt =
       IconData(0xf073, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData twitter_square =
+      IconData(0xf081, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData facebook_square =
+      IconData(0xf082, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData linkedin =
+      IconData(0xf08c, fontFamily: _kFontFam, fontPackage: _kFontPkg);
   static const IconData globe =
       IconData(0xf0ac, fontFamily: _kFontFam, fontPackage: _kFontPkg);
+  static const IconData calendar_plus =
+      IconData(0xf271, fontFamily: _kFontFam, fontPackage: _kFontPkg);
 }

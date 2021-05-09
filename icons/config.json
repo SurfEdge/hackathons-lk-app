@@ -37,6 +37,58 @@
       "css": "globe",
       "code": 61612,
       "src": "fontawesome5"
+    },
+    {
+      "uid": "69796d9dc44451893ee2a6ee50471528",
+      "css": "icon-ionic-ios-time",
+      "code": 59394,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M500 0A500 500 0 1 0 1000.1 500 499.9 499.9 0 0 0 500 0ZM533.7 543.3A33.7 33.7 0 0 1 500 576.9H269.2A33.7 33.7 0 0 1 269.2 509.6H466.4V192.3A33.7 33.7 0 1 1 533.7 192.3Z",
+        "width": 1000
+      },
+      "search": [
+        "icon-ionic-ios-time"
+      ]
+    },
+    {
+      "uid": "993283c9447d547cdaa4618a9d157422",
+      "css": "facebook_square",
+      "code": 61570,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "55790ce34e1c16fab20af6e48f0af1a9",
+      "css": "twitter_square",
+      "code": 61569,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "74c70e9699596fa9d000c2f13060a381",
+      "css": "linkedin",
+      "code": 61580,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "37b5f07312a00a665450702cf95e11ac",
+      "css": "calendar_plus",
+      "code": 62065,
+      "src": "fontawesome5"
+    },
+    {
+      "uid": "11382528fc258963cb428c9281f92786",
+      "css": "facebook",
+      "code": 59394,
+      "src": "custom_icons",
+      "selected": false,
+      "svg": {
+        "path": "M875 0H125C56.1 0 0 56.1 0 125V875C0 943.9 56.1 1000 125 1000H500V656.3H375V500H500V375C500 271.4 583.9 187.5 687.5 187.5H812.5V343.8H750C715.5 343.8 687.5 340.5 687.5 375V500H843.8L781.3 656.3H687.5V1000H875C943.9 1000 1000 943.9 1000 875V125C1000 56.1 943.9 0 875 0Z",
+        "width": 1000
+      },
+      "search": [
+        "facebook"
+      ]
     }
   ]
 }
