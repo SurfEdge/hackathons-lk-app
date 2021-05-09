@@ -66,7 +66,7 @@ class _AllEventsSectionState extends State<AllEventsSection> {
                                   topLeft: Radius.circular(20),
                                   topRight: Radius.circular(20)),
                               child: Hero(
-                                tag: data[index].image,
+                                tag: data[index].image + '0',
                                 transitionOnUserGestures: true,
                                 child: Material(
                                   type: MaterialType.transparency,
@@ -223,13 +223,15 @@ class _AllEventsSectionState extends State<AllEventsSection> {
                     ),
                   ),
                   onTap: () {
-                    Route route = SlidingTransition(
-                      widget: EventInnerScreen(
-                        eventData: data[index],
-                        index: index,
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EventInnerScreen(
+                          eventData: data[index],
+                          sectionId: '0',
+                        ),
                       ),
                     );
-                    Navigator.push(context, route);
                   },
                 );
               },

@@ -10,8 +10,8 @@ import 'package:add_2_calendar/add_2_calendar.dart';
 
 class EventInnerScreen extends StatefulWidget {
   final Data eventData;
-  final int index;
-  EventInnerScreen({@required this.eventData, @required this.index});
+  final String sectionId;
+  EventInnerScreen({@required this.eventData, @required this.sectionId});
 
   @override
   _EventInnerScreenState createState() => _EventInnerScreenState();
@@ -31,7 +31,7 @@ class _EventInnerScreenState extends State<EventInnerScreen> {
                   padding: EdgeInsets.zero,
                   children: [
                     Hero(
-                      tag: '${widget.eventData.image}',
+                      tag: '${widget.eventData.image}${widget.sectionId}',
                       transitionOnUserGestures: true,
                       child: Material(
                         type: MaterialType.transparency,
@@ -476,70 +476,71 @@ class _EventInnerScreenState extends State<EventInnerScreen> {
                   ],
                 ),
               ),
-              Container(
-                padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-                child: Row(
-                  children: [
-                    Flexible(
-                      //* Register now button
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(30),
-                          ),
-                          primary: Colors.grey,
-                          backgroundColor: Color(0xff1B9120),
-                        ),
-                        onPressed: () async {
-                          await canLaunch(widget.eventData.register)
-                              ? await launch(widget.eventData.register)
-                              : throw 'Could not launch ${widget.eventData.register}';
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.person_add, color: Colors.white),
-                            SizedBox(width: 5),
-                            Text(
-                              "Register Now",
-                              style: TextStyle(
-                                fontFamily: 'sf',
-                                fontSize: 18,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                              ),
+              if (widget.eventData.status == 'Upcoming')
+                Container(
+                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  child: Row(
+                    children: [
+                      Flexible(
+                        //* Register now button
+                        child: TextButton(
+                          style: TextButton.styleFrom(
+                            padding: EdgeInsets.fromLTRB(0, 12, 0, 12),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(30),
                             ),
-                          ],
+                            primary: Colors.grey,
+                            backgroundColor: Color(0xff1B9120),
+                          ),
+                          onPressed: () async {
+                            await canLaunch(widget.eventData.register)
+                                ? await launch(widget.eventData.register)
+                                : throw 'Could not launch ${widget.eventData.register}';
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(Icons.person_add, color: Colors.white),
+                              SizedBox(width: 5),
+                              Text(
+                                "Register Now",
+                                style: TextStyle(
+                                  fontFamily: 'sf',
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 10),
-                    //* Add to caledar button
-                    InkWell(
-                      child: Container(
-                        padding: EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                            color: Color(0xff1976D2), shape: BoxShape.circle),
-                        child: Icon(
-                          Customicons.calendar_plus,
-                          color: Colors.white,
+                      SizedBox(width: 10),
+                      //* Add to caledar button
+                      InkWell(
+                        child: Container(
+                          padding: EdgeInsets.all(12),
+                          decoration: BoxDecoration(
+                              color: Color(0xff1976D2), shape: BoxShape.circle),
+                          child: Icon(
+                            Customicons.calendar_plus,
+                            color: Colors.white,
+                          ),
                         ),
-                      ),
-                      onTap: () {
-                        Add2Calendar.addEvent2Cal(Event(
-                          title: widget.eventData.title,
-                          location: widget.eventData.eventLocation,
-                          startDate: DateFormat('MM/dd/yyyy')
-                              .parse(widget.eventData.eventStartDate),
-                          endDate: DateFormat('MM/dd/yyyy')
-                              .parse(widget.eventData.eventEndDate),
-                        ));
-                      },
-                    )
-                  ],
-                ),
-              )
+                        onTap: () {
+                          Add2Calendar.addEvent2Cal(Event(
+                            title: widget.eventData.title,
+                            location: widget.eventData.eventLocation,
+                            startDate: DateFormat('MM/dd/yyyy')
+                                .parse(widget.eventData.eventStartDate),
+                            endDate: DateFormat('MM/dd/yyyy')
+                                .parse(widget.eventData.eventEndDate),
+                          ));
+                        },
+                      )
+                    ],
+                  ),
+                )
             ],
           ),
         ),
