@@ -1,9 +1,8 @@
 import 'package:hackathons_lk_app/screens/event_inner_screen.dart';
-import 'package:hackathons_lk_app/screens/events_screen.dart';
 import 'package:hackathons_lk_app/services/customicons_icons.dart';
 
 import 'package:flutter/material.dart';
-import 'package:hackathons_lk_app/transitions/sliding_transition.dart';
+import 'package:hackathons_lk_app/services/api_data.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';

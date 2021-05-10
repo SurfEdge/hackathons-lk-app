@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:hackathons_lk_app/screens/events_screen.dart';
 import 'package:hackathons_lk_app/services/customicons_icons.dart';
+import 'package:hackathons_lk_app/services/api_data.dart';
 import 'package:hackathons_lk_app/services/scroll_glow_disabler.dart';
 import 'package:intl/intl.dart';
 import 'package:flutter_html/flutter_html.dart';
