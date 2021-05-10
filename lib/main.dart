@@ -5,9 +5,10 @@ import 'package:hackathons_lk_app/screens/calendar_screen.dart';
 import 'package:hackathons_lk_app/screens/events_screen.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:hackathons_lk_app/services/customicons_icons.dart';
+import 'package:intl/date_symbol_data_local.dart';
 
 void main() {
-  runApp(HackathonsLK());
+  initializeDateFormatting().then((_) => runApp(HackathonsLK()));
 }
 
 class HackathonsLK extends StatefulWidget {
@@ -99,10 +100,11 @@ class _HackathonsLKState extends State<HackathonsLK> {
           title: Text(
             "Calendar",
             style: TextStyle(
-                color: Colors.white,
-                fontFamily: 'poppins',
-                fontWeight: FontWeight.w400,
-                fontSize: 16),
+              color: Colors.white,
+              fontFamily: 'poppins',
+              fontWeight: FontWeight.w400,
+              fontSize: 16,
+            ),
           ),
         ),
         //* About Item
