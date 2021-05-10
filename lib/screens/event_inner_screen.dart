@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:hackathons_lk_app/screens/events_screen.dart';
 import 'package:hackathons_lk_app/services/customicons_icons.dart';
 import 'package:hackathons_lk_app/services/api_data.dart';
 import 'package:hackathons_lk_app/services/scroll_glow_disabler.dart';
@@ -158,7 +157,7 @@ class _EventInnerScreenState extends State<EventInnerScreen> {
                           SizedBox(height: 10),
                           Container(
                             padding: EdgeInsets.fromLTRB(25, 15, 25, 15),
-                            //* Main Card shadow
+                            //* DateTime Card shadow
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius: BorderRadius.circular(20.0),
@@ -174,169 +173,173 @@ class _EventInnerScreenState extends State<EventInnerScreen> {
                                 )
                               ],
                             ),
-                            child: Column(
-                              children: [
-                                //* Starting date and time
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Flexible(
-                                      flex: 2,
-                                      fit: FlexFit.tight,
-                                      child: Text(
-                                        'Starts:',
-                                        style: TextStyle(
-                                          fontFamily: 'poppins',
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black,
+                            width: double.infinity,
+                            child: Align(
+                              alignment: Alignment.center,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Starts:',
+                                    style: TextStyle(
+                                      fontFamily: 'poppins',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                  //* Starting date and time
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SizedBox(width: 15),
+                                      Flexible(
+                                        flex: 2,
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              Customicons.calendar_alt,
+                                              color: Color(0xff1976D2),
+                                              size: 17,
+                                            ),
+                                            SizedBox(width: 6),
+                                            //* Start date
+                                            Text(
+                                              DateFormat('MM.dd.yyyy')
+                                                  .format(
+                                                      DateFormat('MM/dd/yyyy')
+                                                          .parse(widget
+                                                              .eventData
+                                                              .eventStartDate))
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'poppins',
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w400,
+                                                color: Color(0xff1976D2),
+                                              ),
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                    ),
-                                    Flexible(
-                                      flex: 3,
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Customicons.calendar_alt,
-                                            color: Color(0xff1976D2),
-                                            size: 17,
-                                          ),
-                                          SizedBox(width: 6),
-                                          //* Start date
-                                          Text(
-                                            DateFormat('MM.dd.yyyy')
-                                                .format(DateFormat('MM/dd/yyyy')
-                                                    .parse(widget.eventData
-                                                        .eventStartDate))
-                                                .toString(),
-                                            style: TextStyle(
-                                              fontFamily: 'poppins',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w400,
+                                      Flexible(
+                                        flex: 3,
+                                        fit: FlexFit.loose,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            SizedBox(width: 15),
+                                            Icon(
+                                              Customicons.icon_ionic_ios_time,
                                               color: Color(0xff1976D2),
+                                              size: 17,
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Flexible(
-                                      flex: 3,
-                                      child: Row(
-                                        children: [
-                                          SizedBox(width: 15),
-                                          Icon(
-                                            Customicons.icon_ionic_ios_time,
-                                            color: Color(0xff1976D2),
-                                            size: 17,
-                                          ),
-                                          SizedBox(width: 6),
-                                          //* Start time
-                                          Text(
-                                            widget.eventData.eventStartTime,
-                                            style: TextStyle(
-                                              fontFamily: 'poppins',
-                                              fontSize: 16,
-                                              fontWeight: FontWeight.w400,
-                                              color: Color(0xff1976D2),
+                                            SizedBox(width: 6),
+                                            //* Start time
+                                            Text(
+                                              widget.eventData.eventStartTime,
+                                              style: TextStyle(
+                                                fontFamily: 'poppins',
+                                                fontSize: 16,
+                                                fontWeight: FontWeight.w400,
+                                                color: Color(0xff1976D2),
+                                              ),
                                             ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(height: 5),
-                                Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Flexible(
-                                      flex: 2,
-                                      fit: FlexFit.tight,
-                                      child: Text(
-                                        'End:',
-                                        style: TextStyle(
-                                          fontFamily: 'poppins',
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w400,
-                                          color: Colors.black,
+                                          ],
                                         ),
                                       ),
+                                    ],
+                                  ),
+                                  SizedBox(height: 5),
+                                  Text(
+                                    'End:',
+                                    style: TextStyle(
+                                      fontFamily: 'poppins',
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.black,
                                     ),
-                                    Flexible(
-                                      flex: 3,
-                                      child: Row(
-                                        children: [
-                                          Icon(
-                                            Customicons.calendar_alt,
-                                            color: Color(0xff1976D2),
-                                            size: 17,
-                                          ),
-                                          SizedBox(width: 6),
-                                          //* Start date
-                                          Text(
-                                            DateFormat('MM.dd.yyyy')
-                                                .format(DateFormat('MM/dd/yyyy')
-                                                    .parse(widget.eventData
-                                                        .eventEndDate))
-                                                .toString(),
-                                            style: TextStyle(
-                                              fontFamily: 'poppins',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w400,
+                                  ),
+                                  //* Ending date and time
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      SizedBox(width: 15),
+                                      Flexible(
+                                        flex: 2,
+                                        child: Row(
+                                          children: [
+                                            Icon(
+                                              Customicons.calendar_alt,
                                               color: Color(0xff1976D2),
+                                              size: 17,
                                             ),
-                                          ),
-                                        ],
+                                            SizedBox(width: 6),
+                                            //* End date
+                                            Text(
+                                              DateFormat('MM.dd.yyyy')
+                                                  .format(
+                                                      DateFormat('MM/dd/yyyy')
+                                                          .parse(widget
+                                                              .eventData
+                                                              .eventEndDate))
+                                                  .toString(),
+                                              style: TextStyle(
+                                                fontFamily: 'poppins',
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w400,
+                                                color: Color(0xff1976D2),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    Flexible(
-                                      flex: 3,
-                                      child: Row(
-                                        children: [
-                                          SizedBox(width: 15),
-                                          Icon(
-                                            Customicons.icon_ionic_ios_time,
-                                            color: Color(0xff1976D2),
-                                            size: 17,
-                                          ),
-                                          SizedBox(width: 6),
-                                          //* Start time
-                                          Text(
-                                            widget.eventData.eventEndTime,
-                                            style: TextStyle(
-                                              fontFamily: 'poppins',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.w400,
+                                      Flexible(
+                                        flex: 3,
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.start,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            SizedBox(width: 15),
+                                            Icon(
+                                              Customicons.icon_ionic_ios_time,
                                               color: Color(0xff1976D2),
+                                              size: 17,
                                             ),
-                                          ),
-                                        ],
+                                            SizedBox(width: 6),
+                                            //* End time
+                                            Text(
+                                              widget.eventData.eventEndTime,
+                                              style: TextStyle(
+                                                fontFamily: 'poppins',
+                                                fontSize: 15,
+                                                fontWeight: FontWeight.w400,
+                                                color: Color(0xff1976D2),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
-                          // SizedBox(height: 15),
-                          // //* Think about topic
-                          // Text(
-                          //   'What we think about',
-                          //   style: TextStyle(
-                          //     fontFamily: 'poppins',
-                          //     fontSize: 18,
-                          //     fontWeight: FontWeight.w600,
-                          //     color: Color(0xff707070),
-                          //   ),
-                          // ),
-                          //* Description html view
                           Html(
-                            // shrinkWrap: true,
                             data: (widget.eventData.content)
                                 .replaceAll('</p>\n<p>&nbsp;</p>\n', ''),
-                            // .replaceAll('</p>\n', ''),
                             blacklistedElements: ['img'],
+                            onLinkTap: (url) async {
+                              await canLaunch(url)
+                                  ? await launch(url)
+                                  : throw 'Could not launch $url';
+                            },
                           ),
                           SizedBox(height: 10),
                           Row(

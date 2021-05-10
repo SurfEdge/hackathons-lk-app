@@ -100,8 +100,8 @@ class _CalendarScreenState extends State<CalendarScreen> {
                       children: [
                         Container(
                           margin: EdgeInsets.fromLTRB(20, 0, 20, 15),
-                          padding: EdgeInsets.fromLTRB(10, 0, 10, 0),
-                          //* Main Card shadow
+                          padding: EdgeInsets.fromLTRB(10, 0, 10, 5),
+                          //* Calendar card shadow
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20.0),
@@ -117,7 +117,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                               )
                             ],
                           ),
-                          //* Event Card ----------------------------------------------------------------------
+                          //* Calendar Card ----------------------------------------------------------------------
                           child: Card(
                             elevation: 0,
                             margin: EdgeInsets.zero,
