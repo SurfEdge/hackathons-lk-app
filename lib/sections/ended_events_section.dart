@@ -103,7 +103,7 @@ class _EndedEventsSectionState extends State<EndedEventsSection> {
                                                       bottom: 10),
                                                   padding: EdgeInsets.fromLTRB(
                                                       6, 4, 6, 4),
-                                                  color: Color(0xff1976D2),
+                                                  color: Colors.grey[700],
                                                   child: Text(
                                                     data[index].status,
                                                     style: TextStyle(
@@ -181,14 +181,14 @@ class _EndedEventsSectionState extends State<EndedEventsSection> {
                                                 Icon(
                                                   Icons.location_on,
                                                   color: Color(0xff1976D2),
-                                                  size: 20,
+                                                  size: 18,
                                                 ),
                                                 SizedBox(width: 2),
                                                 Text(
                                                   data[index].eventLocation,
                                                   style: TextStyle(
                                                     fontFamily: 'poppins',
-                                                    fontSize: 18,
+                                                    fontSize: 15,
                                                     fontWeight: FontWeight.w400,
                                                     color: Color(0xff1976D2),
                                                   ),
@@ -203,7 +203,7 @@ class _EndedEventsSectionState extends State<EndedEventsSection> {
                                                 Icon(
                                                   Customicons.calendar_alt,
                                                   color: Color(0xff1976D2),
-                                                  size: 18,
+                                                  size: 16,
                                                 ),
                                                 SizedBox(width: 5),
                                                 Text(
@@ -215,7 +215,7 @@ class _EndedEventsSectionState extends State<EndedEventsSection> {
                                                       .toString(),
                                                   style: TextStyle(
                                                     fontFamily: 'poppins',
-                                                    fontSize: 18,
+                                                    fontSize: 15,
                                                     fontWeight: FontWeight.w400,
                                                     color: Color(0xff1976D2),
                                                   ),

@@ -182,14 +182,14 @@ class _UpcomingEventsSectionState extends State<UpcomingEventsSection> {
                                                 Icon(
                                                   Icons.location_on,
                                                   color: Color(0xff1976D2),
-                                                  size: 20,
+                                                  size: 18,
                                                 ),
                                                 SizedBox(width: 2),
                                                 Text(
                                                   data[index].eventLocation,
                                                   style: TextStyle(
                                                     fontFamily: 'poppins',
-                                                    fontSize: 18,
+                                                    fontSize: 15,
                                                     fontWeight: FontWeight.w400,
                                                     color: Color(0xff1976D2),
                                                   ),
@@ -204,7 +204,7 @@ class _UpcomingEventsSectionState extends State<UpcomingEventsSection> {
                                                 Icon(
                                                   Customicons.calendar_alt,
                                                   color: Color(0xff1976D2),
-                                                  size: 18,
+                                                  size: 16,
                                                 ),
                                                 SizedBox(width: 5),
                                                 Text(
@@ -216,7 +216,7 @@ class _UpcomingEventsSectionState extends State<UpcomingEventsSection> {
                                                       .toString(),
                                                   style: TextStyle(
                                                     fontFamily: 'poppins',
-                                                    fontSize: 18,
+                                                    fontSize: 15,
                                                     fontWeight: FontWeight.w400,
                                                     color: Color(0xff1976D2),
                                                   ),

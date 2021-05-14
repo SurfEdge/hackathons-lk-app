@@ -6,17 +6,7 @@ import 'package:hackathons_lk_app/services/api_data.dart';
 import 'package:hackathons_lk_app/services/scroll_glow_disabler.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
-Future<List<Data>> fetchData() async {
-  final response = await http
-      .get(Uri.parse('https://hackathons.lk/wp-json/wp/v2/event?_embed'));
-  if (response.statusCode == 200) {
-    List jsonResponse = json.decode(response.body);
-    return jsonResponse.map((data) => new Data.fromJson(data)).toList();
-  } else {
-    throw Exception('Unexpected error occured!');
-  }
-}
+import 'package:get/get.dart';
 
 class EventsScreen extends StatefulWidget {
   @override
@@ -30,7 +20,7 @@ class _EventsScreenState extends State<EventsScreen> {
   @override
   void initState() {
     super.initState();
-    eventData = fetchData();
+    // eventData = fetchData();
   }
 
   @override
@@ -88,6 +78,11 @@ class _EventsScreenState extends State<EventsScreen> {
                             setState(() {
                               _tabIndex = index;
                             });
+                            allEventsScrollController.animateTo(
+                                allEventsScrollController
+                                    .position.minScrollExtent,
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.fastOutSlowIn);
                           },
                         ),
                       ),

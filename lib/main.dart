@@ -6,6 +6,9 @@ import 'package:hackathons_lk_app/screens/events_screen.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 import 'package:hackathons_lk_app/services/customicons_icons.dart';
 import 'package:intl/date_symbol_data_local.dart';
+import 'package:hackathons_lk_app/sections/all_events_section.dart';
+import 'package:hackathons_lk_app/sections/ended_events_section.dart';
+import 'package:hackathons_lk_app/sections/upcoming_events_section.dart';
 
 void main() {
   initializeDateFormatting().then((_) => runApp(HackathonsLK()));
@@ -135,6 +138,10 @@ class _HackathonsLKState extends State<HackathonsLK> {
   }
 
   _onItemTapped(int index) {
+    allEventsScrollController.animateTo(
+        allEventsScrollController.position.minScrollExtent,
+        duration: Duration(milliseconds: 500),
+        curve: Curves.fastOutSlowIn);
     setState(
       () {
         _selectedIndex = index;

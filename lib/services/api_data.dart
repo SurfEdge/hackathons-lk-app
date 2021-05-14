@@ -46,8 +46,12 @@ class Data {
       eventEndTime: json['event_end_time'],
       status: (json['event_status'] == 'upcoming') ? 'Upcoming' : 'Ended',
       website: json['event_website'],
-      image: json['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']
-          ['medium_large']['source_url'],
+      image: (json['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']
+              .containsKey('medium_large'))
+          ? json['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']
+              ['medium_large']['source_url']
+          : json['_embedded']['wp:featuredmedia'][0]['media_details']['sizes']
+              ['blog-default']['source_url'],
       views: json['post_views_count'],
       content: json['content']['rendered'],
       contact: json['event_phone'],
