@@ -138,14 +138,24 @@ class _HackathonsLKState extends State<HackathonsLK> {
   }
 
   _onItemTapped(int index) {
-    allEventsScrollController.animateTo(
-        allEventsScrollController.position.minScrollExtent,
-        duration: Duration(milliseconds: 500),
-        curve: Curves.fastOutSlowIn);
     setState(
       () {
         _selectedIndex = index;
       },
+    );
+
+    //* All events scroll to top
+    allEventsScrollController.animateTo(
+      allEventsScrollController.position.minScrollExtent,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.fastOutSlowIn,
+    );
+
+    //* Ended events scroll to top
+    endedEventsScrollController.animateTo(
+      allEventsScrollController.position.minScrollExtent,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.fastOutSlowIn,
     );
   }
 }
