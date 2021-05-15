@@ -96,7 +96,7 @@ class _EventsScreenState extends State<EventsScreen> {
                                 curve: Curves.fastOutSlowIn,
                               );
 
-                            //* Upcominh events scroll to top
+                            //* Upcoming events scroll to top
                             if (upcomingEventsScrollController.hasClients)
                               upcomingEventsScrollController.animateTo(
                                 upcomingEventsScrollController

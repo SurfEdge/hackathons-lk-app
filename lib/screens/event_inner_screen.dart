@@ -71,7 +71,9 @@ class _EventInnerScreenState extends State<EventInnerScreen> {
                                 Container(
                                   margin: EdgeInsets.only(bottom: 10),
                                   padding: EdgeInsets.fromLTRB(6, 4, 6, 4),
-                                  color: Color(0xff1976D2),
+                                  color: (widget.eventData.status == 'Upcoming')
+                                      ? Color(0xff1976D2)
+                                      : Colors.grey[700],
                                   child: Text(
                                     widget.eventData.status,
                                     style: TextStyle(
@@ -124,7 +126,9 @@ class _EventInnerScreenState extends State<EventInnerScreen> {
                         children: [
                           //* Title text
                           Text(
-                            widget.eventData.title,
+                            (widget.eventData.title)
+                                .replaceAll('&#8211;', '-')
+                                .replaceAll('&#038;', '&'),
                             style: TextStyle(
                               fontFamily: 'poppins',
                               fontSize: 22,
@@ -142,13 +146,15 @@ class _EventInnerScreenState extends State<EventInnerScreen> {
                                 size: 20,
                               ),
                               SizedBox(width: 2),
-                              Text(
-                                widget.eventData.eventLocation,
-                                style: TextStyle(
-                                  fontFamily: 'poppins',
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w400,
-                                  color: Color(0xff1976D2),
+                              Flexible(
+                                child: Text(
+                                  widget.eventData.eventLocation,
+                                  style: TextStyle(
+                                    fontFamily: 'poppins',
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w400,
+                                    color: Color(0xff1976D2),
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 20),
@@ -342,26 +348,28 @@ class _EventInnerScreenState extends State<EventInnerScreen> {
                             },
                           ),
                           SizedBox(height: 10),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.phone,
-                                size: 20,
-                              ),
-                              SizedBox(width: 6),
-                              Flexible(
-                                child: Text(
-                                  widget.eventData.contact,
-                                  style: TextStyle(
-                                    fontFamily: 'poppins',
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.black,
+                          //* Contact number
+                          if (widget.eventData.contact != '')
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.phone,
+                                  size: 20,
+                                ),
+                                SizedBox(width: 6),
+                                Flexible(
+                                  child: Text(
+                                    widget.eventData.contact,
+                                    style: TextStyle(
+                                      fontFamily: 'poppins',
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
+                              ],
+                            ),
                           SizedBox(height: 15),
                           Row(
                             children: [

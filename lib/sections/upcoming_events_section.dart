@@ -205,12 +205,7 @@ class _UpcomingEventsSectionState extends State<UpcomingEventsSection> {
                                                       bottom: 10),
                                                   padding: EdgeInsets.fromLTRB(
                                                       6, 4, 6, 4),
-                                                  color: (postsController
-                                                              .eventsList[index]
-                                                              .status ==
-                                                          'Upcoming')
-                                                      ? Color(0xff1976D2)
-                                                      : Colors.grey[700],
+                                                  color: Color(0xff1976D2),
                                                   child: Text(
                                                     postsController
                                                         .eventsList[index]
