@@ -157,5 +157,12 @@ class _HackathonsLKState extends State<HackathonsLK> {
       duration: Duration(milliseconds: 500),
       curve: Curves.fastOutSlowIn,
     );
+
+    //* Upcominh events scroll to top
+    upcomingEventsScrollController.animateTo(
+      allEventsScrollController.position.minScrollExtent,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.fastOutSlowIn,
+    );
   }
 }

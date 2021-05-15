@@ -4,7 +4,7 @@ import 'package:hackathons_lk_app/services/customicons_icons.dart';
 
 import 'package:flutter/material.dart';
 import 'package:hackathons_lk_app/services/api_data.dart';
-import 'package:hackathons_lk_app/services/postsController.dart';
+import 'package:hackathons_lk_app/services/allEvents_PostsController.dart';
 import 'package:intl/intl.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -21,7 +21,8 @@ class AllEventsSection extends StatefulWidget {
 }
 
 class _AllEventsSectionState extends State<AllEventsSection> {
-  final PostsController postsController = Get.put(PostsController());
+  final AllEventsPostsController postsController =
+      Get.put(AllEventsPostsController());
   int _page = 1;
 
   @override

@@ -1,7 +1,7 @@
 import 'package:hackathons_lk_app/screens/event_inner_screen.dart';
 import 'package:hackathons_lk_app/services/customicons_icons.dart';
 import 'package:hackathons_lk_app/services/api_data.dart';
-import 'package:hackathons_lk_app/services/postsController.dart';
+import 'package:hackathons_lk_app/services/endedEvents_PostsController.dart';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +21,8 @@ class EndedEventsSection extends StatefulWidget {
 }
 
 class _EndedEventsSectionState extends State<EndedEventsSection> {
-  final PostsController postsController = Get.put(PostsController());
+  final EndedEventsPostsController postsController =
+      Get.put(EndedEventsPostsController());
   int _page = 1;
 
   @override

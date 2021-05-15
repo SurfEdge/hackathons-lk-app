@@ -79,20 +79,31 @@ class _EventsScreenState extends State<EventsScreen> {
                               _tabIndex = index;
                             });
                             //* All events scroll to top
-                            allEventsScrollController.animateTo(
-                              allEventsScrollController
-                                  .position.minScrollExtent,
-                              duration: Duration(milliseconds: 500),
-                              curve: Curves.fastOutSlowIn,
-                            );
+                            if (allEventsScrollController.hasClients)
+                              allEventsScrollController.animateTo(
+                                allEventsScrollController
+                                    .position.minScrollExtent,
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.fastOutSlowIn,
+                              );
 
                             //* Ended events scroll to top
-                            endedEventsScrollController.animateTo(
-                              allEventsScrollController
-                                  .position.minScrollExtent,
-                              duration: Duration(milliseconds: 500),
-                              curve: Curves.fastOutSlowIn,
-                            );
+                            if (endedEventsScrollController.hasClients)
+                              endedEventsScrollController.animateTo(
+                                endedEventsScrollController
+                                    .position.minScrollExtent,
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.fastOutSlowIn,
+                              );
+
+                            //* Upcominh events scroll to top
+                            if (upcomingEventsScrollController.hasClients)
+                              upcomingEventsScrollController.animateTo(
+                                upcomingEventsScrollController
+                                    .position.minScrollExtent,
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.fastOutSlowIn,
+                              );
                           },
                         ),
                       ),
