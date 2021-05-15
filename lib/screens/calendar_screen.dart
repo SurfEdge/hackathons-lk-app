@@ -329,7 +329,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
                               Container(
                                 margin: EdgeInsets.only(bottom: 10),
                                 padding: EdgeInsets.fromLTRB(6, 4, 6, 4),
-                                color: Color(0xff1976D2),
+                                color: (_selectedEvents[0].status == 'Upcoming')
+                                    ? Color(0xff1976D2)
+                                    : Colors.grey[700],
                                 child: Text(
                                   _selectedEvents[0].status,
                                   style: TextStyle(
@@ -382,7 +384,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
                     children: [
                       //* Title text
                       Text(
-                        _selectedEvents[0].title,
+                        (_selectedEvents[0].title)
+                            .replaceAll('&#8211;', '-')
+                            .replaceAll('&#038;', '&'),
                         style: TextStyle(
                           fontFamily: 'poppins',
                           fontSize: 22,
@@ -399,14 +403,14 @@ class _CalendarScreenState extends State<CalendarScreen> {
                               Icon(
                                 Icons.location_on,
                                 color: Color(0xff1976D2),
-                                size: 20,
+                                size: 18,
                               ),
                               SizedBox(width: 2),
                               Text(
                                 _selectedEvents[0].eventLocation,
                                 style: TextStyle(
                                   fontFamily: 'poppins',
-                                  fontSize: 18,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.w400,
                                   color: Color(0xff1976D2),
                                 ),
@@ -421,7 +425,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                               Icon(
                                 Customicons.calendar_alt,
                                 color: Color(0xff1976D2),
-                                size: 18,
+                                size: 16,
                               ),
                               SizedBox(width: 5),
                               Text(
@@ -431,7 +435,7 @@ class _CalendarScreenState extends State<CalendarScreen> {
                                     .toString(),
                                 style: TextStyle(
                                   fontFamily: 'poppins',
-                                  fontSize: 18,
+                                  fontSize: 15,
                                   fontWeight: FontWeight.w400,
                                   color: Color(0xff1976D2),
                                 ),

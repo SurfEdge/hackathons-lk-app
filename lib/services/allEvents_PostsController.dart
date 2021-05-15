@@ -7,7 +7,7 @@ import 'package:http/http.dart' as http;
 
 ValueNotifier<bool> isLoaded = ValueNotifier<bool>(false);
 
-class PostsController extends GetxController {
+class AllEventsPostsController extends GetxController {
   var isLoading = true.obs;
   var eventsList = <Data>[].obs;
   var totalRecords = 10.obs;

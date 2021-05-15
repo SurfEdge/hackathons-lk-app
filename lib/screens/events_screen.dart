@@ -78,11 +78,32 @@ class _EventsScreenState extends State<EventsScreen> {
                             setState(() {
                               _tabIndex = index;
                             });
-                            allEventsScrollController.animateTo(
+                            //* All events scroll to top
+                            if (allEventsScrollController.hasClients)
+                              allEventsScrollController.animateTo(
                                 allEventsScrollController
                                     .position.minScrollExtent,
                                 duration: Duration(milliseconds: 500),
-                                curve: Curves.fastOutSlowIn);
+                                curve: Curves.fastOutSlowIn,
+                              );
+
+                            //* Ended events scroll to top
+                            if (endedEventsScrollController.hasClients)
+                              endedEventsScrollController.animateTo(
+                                endedEventsScrollController
+                                    .position.minScrollExtent,
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.fastOutSlowIn,
+                              );
+
+                            //* Upcoming events scroll to top
+                            if (upcomingEventsScrollController.hasClients)
+                              upcomingEventsScrollController.animateTo(
+                                upcomingEventsScrollController
+                                    .position.minScrollExtent,
+                                duration: Duration(milliseconds: 500),
+                                curve: Curves.fastOutSlowIn,
+                              );
                           },
                         ),
                       ),
