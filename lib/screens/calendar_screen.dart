@@ -384,7 +384,9 @@ class _CalendarScreenState extends State<CalendarScreen> {
                     children: [
                       //* Title text
                       Text(
-                        _selectedEvents[0].title,
+                        (_selectedEvents[0].title)
+                            .replaceAll('&#8211;', '-')
+                            .replaceAll('&#038;', '&'),
                         style: TextStyle(
                           fontFamily: 'poppins',
                           fontSize: 22,
