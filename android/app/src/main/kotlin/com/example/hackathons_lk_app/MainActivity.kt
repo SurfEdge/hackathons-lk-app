@@ -1,4 +1,4 @@
-package com.example.hackathons_lk_app
+package lk.surfedge.hackathonslk
 
 import io.flutter.embedding.android.FlutterActivity
 

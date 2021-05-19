@@ -49,26 +49,26 @@ class _AboutScreenState extends State<AboutScreen> {
             Row(
               children: [
                 //* Call button
-                InkWell(
-                  child: Container(
-                    margin: EdgeInsets.only(right: 12),
-                    padding: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      color: Color(0xff1976D2),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Icon(
-                      Icons.call,
-                      color: Colors.white,
-                    ),
-                  ),
-                  //* Call to hackathon.lk
-                  onTap: () async {
-                    await canLaunch('tel:+94764793907')
-                        ? await launch('tel:+94764793907')
-                        : throw 'Could not launch tel:+94764793907';
-                  },
-                ),
+                // InkWell(
+                //   child: Container(
+                //     margin: EdgeInsets.only(right: 12),
+                //     padding: EdgeInsets.all(10),
+                //     decoration: BoxDecoration(
+                //       color: Color(0xff1976D2),
+                //       borderRadius: BorderRadius.circular(10),
+                //     ),
+                //     child: Icon(
+                //       Icons.call,
+                //       color: Colors.white,
+                //     ),
+                //   ),
+                //   //* Call to hackathon.lk
+                //   onTap: () async {
+                //     await canLaunch('tel:+94764793907')
+                //         ? await launch('tel:+94764793907')
+                //         : throw 'Could not launch tel:+94764793907';
+                //   },
+                // ),
                 //* Mail button
                 InkWell(
                   child: Container(
