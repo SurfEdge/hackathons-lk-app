@@ -70,14 +70,14 @@ class _HackathonsLKState extends State<HackathonsLK> {
             color: colorMain,
           ),
           activeIcon: Container(
-            width: 0,
+            width: 8,
             child: Icon(
               Customicons.events,
               color: colorSelected,
             ),
           ),
           title: Text(
-            "Events",
+            "Hackathons",
             style: TextStyle(
                 color: Colors.white,
                 fontFamily: 'poppins',

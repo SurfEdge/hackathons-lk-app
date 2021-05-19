@@ -540,14 +540,20 @@ class _EventInnerScreenState extends State<EventInnerScreen> {
                           ),
                         ),
                         onTap: () {
-                          Add2Calendar.addEvent2Cal(Event(
-                            title: widget.eventData.title,
-                            location: widget.eventData.eventLocation,
-                            startDate: DateFormat('MM/dd/yyyy')
-                                .parse(widget.eventData.eventStartDate),
-                            endDate: DateFormat('MM/dd/yyyy')
-                                .parse(widget.eventData.eventEndDate),
-                          ));
+                          Add2Calendar.addEvent2Cal(
+                            Event(
+                              title: widget.eventData.title,
+                              location: widget.eventData.eventLocation,
+                              startDate: DateFormat('MM/dd/yyyy hh:mm aaa')
+                                  .parse(widget.eventData.eventStartDate +
+                                      ' ' +
+                                      widget.eventData.eventStartTime),
+                              endDate: DateFormat('MM/dd/yyyy hh:mm aaa').parse(
+                                  widget.eventData.eventEndDate +
+                                      ' ' +
+                                      widget.eventData.eventEndTime),
+                            ),
+                          );
                         },
                       )
                     ],
