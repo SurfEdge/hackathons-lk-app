@@ -1,3 +1,5 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hackathons_lk_app/screens/about_screen.dart';
@@ -10,7 +12,9 @@ import 'package:hackathons_lk_app/sections/all_events_section.dart';
 import 'package:hackathons_lk_app/sections/ended_events_section.dart';
 import 'package:hackathons_lk_app/sections/upcoming_events_section.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   initializeDateFormatting().then((_) => runApp(HackathonsLK()));
 }
 
@@ -23,6 +27,29 @@ class _HackathonsLKState extends State<HackathonsLK> {
   Color colorMain = Color(0xff939AA4);
   Color colorSelected = Color(0xffffffff);
 
+  void registerNotification() async {
+    FirebaseMessaging _messaging = FirebaseMessaging.instance;
+    // 1. Initialize the Firebase app
+    await Firebase.initializeApp();
+
+    // 2. On iOS, this helps to take the user permissions
+    await _messaging.requestPermission(
+      alert: true,
+      announcement: false,
+      badge: true,
+      carPlay: false,
+      criticalAlert: false,
+      provisional: false,
+      sound: true,
+    );
+  }
+
+  @override
+  void initState() {
+    registerNotification();
+    super.initState();
+  }
+
   int _selectedIndex = 0;
   final List<Widget> _menus = [EventsScreen(), CalendarScreen(), AboutScreen()];
 
@@ -32,6 +59,7 @@ class _HackathonsLKState extends State<HackathonsLK> {
       DeviceOrientation.portraitUp,
     ]);
     return MaterialApp(
+      title: 'Hackathons.lk',
       theme: ThemeData(
         accentColor: Color(0xff1976D2),
         splashColor: Colors.transparent,
